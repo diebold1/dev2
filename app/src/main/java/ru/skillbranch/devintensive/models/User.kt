@@ -12,8 +12,6 @@ data class User(
     var respect : Int = 0,
     var lastVisit : Date?= null,
     var isOnline : Boolean = false
-
-
 ) {
     var introBit:String
     constructor(id:String,firstName: String?, lastName: String?):this(
@@ -27,14 +25,14 @@ data class User(
     init {
         introBit = gerIntro()
         println("It's alive!!! \n"+
-                "${if(lastName==="Doe") "His name is $firstName $lastName" else "And his name $firstName $lastName"}\n")
+                "${if(lastName==="Doe") "His name is $lastName $firstName" else "And his name $lastName $firstName"}\n")
     }
 
     companion object Factory {
         private  var lastId: Int = -1
         fun  makeUser(fullName:String) :User{
             lastId++
-          val( firstName,lastName) = Utils.parseFullName(fullName)
+          val( lastName,firstName) = Utils.parseFullName(fullName)
            // if ((fullName != null)|| parts?.size!! > 1 )
                 return  User(id= "$lastId",firstName = firstName,lastName = lastName)
           //  else

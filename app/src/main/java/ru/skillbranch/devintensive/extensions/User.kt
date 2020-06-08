@@ -7,18 +7,18 @@ import java.util.*
 
 fun User.toUserView() : UserView {
 
-    val nickName = Utils.transliteration("$firstName $lastName")
+    val nickName = Utils.transliteration(" $lastName $firstName")
     val initials= Utils.toInitials(firstName,lastName)
-    val status = if( lastVisit == null) "Еще не разу не был"
-        else if (isOnline) "onLine" else "Последний раз был ${lastVisit?.humanizeDiff()}"
+    val status = if( lastVisit == null) "Еще ни разу не был"
+        else if (isOnline) "online" else "Последний раз был ${lastVisit?.humanizeDiff()}"
 
     return UserView(
         id,
-        fullName =  "$firstName $lastName",
-        nickName = nickName ,
+        fullName =  " $lastName $firstName",
         avatar = avatar,
-        status = status,
-        initials = initials
+        nickName = nickName ,
+        initials = initials,
+        status = status
 
-    )
+        )
 }

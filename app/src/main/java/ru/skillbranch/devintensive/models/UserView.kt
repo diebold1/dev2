@@ -7,7 +7,7 @@ class UserView(
     var fullName : String,
     var nickName : String,
     var avatar : String? = null,
-    var status : String = "offline",
+    var status : String? = "offline",
     var initials: String?
      ){
     fun printMe(){

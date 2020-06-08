@@ -71,6 +71,24 @@ object Utils {
 
     }
 
-    fun toInitials(firstName:   String?, lastName: String?)= "${firstName?.get(0)}${lastName?.get(0)}"
+    fun toInitials(firstName:   String?, lastName: String?):String? {
+        val fn =  when{
+            (firstName == null)  -> null
+            (firstName == " ")  -> null
+            (firstName == "")  -> null
+            else-> firstName?.get(0).toUpperCase()
+        }
+        val ln =  when{
+            (lastName == null)  -> null
+            (lastName == " ")  -> null
+            (lastName == "")  -> null
+            else-> lastName?.get(0).toUpperCase()
+        }
+        val i:String?=null;
+        if ((ln == null) && (fn == null))
+            return null
+
+        return "${ if (fn!=null) fn else ""}${ if (ln!=null) ln  else ""}"
+    }
 
 }
