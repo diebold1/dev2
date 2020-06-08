@@ -32,7 +32,7 @@ data class User(
         private  var lastId: Int = -1
         fun  makeUser(fullName:String) :User{
             lastId++
-          val( lastName,firstName) = Utils.parseFullName(fullName)
+          val( firstName,lastName) = Utils.parseFullName(fullName)
            // if ((fullName != null)|| parts?.size!! > 1 )
                 return  User(id= "$lastId",firstName = firstName,lastName = lastName)
           //  else
